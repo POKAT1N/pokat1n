@@ -51,6 +51,13 @@ local Button = MainTab:CreateButton({
    end,
 })
 
+local Button = MainTab:CreateButton({
+   Name = "FreeVIP",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/POKAT1N/pokat1n/refs/heads/main/FreeVIP"))()
+   end,
+})
+
 local OtherSection = MainTab:CreateSection("Other")
 
 local Toggle = MainTab:CreateButton({
