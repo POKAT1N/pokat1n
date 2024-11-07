@@ -121,58 +121,79 @@ local MainSection = AnimTab:CreateSection("Animation")
 AnimTab:CreateButton({
     Name = "ADIDAS",
     Callback = function()
-        -- Шутка
-        print("Я не говорю, что ты олд, но тебе точно понравится эта анимация!")
-
-        -- Изменяем анимацию
-        local character = game.Players.LocalPlayer.Character
-        local Animate = character:WaitForChild("Animate")
-
-        -- Пример замены анимаций
-        Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=18537376492"
-        Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=18537371272"
-        Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=18537392113"
-        Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=18537384940"
-        Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=18537380791"
-        Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=18537363391"
-        Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=18537367238"
-        Animate.Disabled = false
-    end
+            local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+            local Animate = plr.Character.Animate
+            Animate.Disabled = true
+            
+            -- Остановка текущих анимаций
+            local function StopAnim()
+                for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+                    track:Stop()
+                end
+            end
+            
+            StopAnim()
+            -- Установка анимаций
+            Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=18537376492"
+            Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=18537371272"
+            Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=18537392113"
+            Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=18537384940"
+            Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=18537380791"
+            Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=18537363391"
+            Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=18537367238"
+            -- Обновление состояния Humanoid
+            plr.Character.Humanoid:ChangeState(3)
+            
+            Animate.Disabled = false
+        end
 })
 
 AnimTab:CreateButton({
     Name = "Levetation",
     Callback = function()
-        -- Шутка
-        print("Я не говорю, что ты олд, но тебе точно понравится эта анимация!")
-
-        -- Изменяем анимацию
-        local character = game.Players.LocalPlayer.Character
-        local Animate = character:WaitForChild("Animate")
-
-        -- Пример замены анимаций
-        Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
-        Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
-        Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616013216"
-        Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616010382"
-        Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616008936"
-        Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616003713"
-        Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616005863"
-        Animate.Disabled = false
-    end
+            local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+            local Animate = plr.Character.Animate
+            Animate.Disabled = true
+            
+            -- Остановка текущих анимаций
+            local function StopAnim()
+                for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+                    track:Stop()
+                end
+            end
+            
+            StopAnim()
+            -- Установка анимаций
+            Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
+            Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
+            Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616013216"
+            Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616010382"
+            Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616008936"
+            Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616003713"
+            Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616005863"
+            -- Обновление состояния Humanoid
+            plr.Character.Humanoid:ChangeState(3)
+            
+            Animate.Disabled = false
+        end
 })
 
 AnimTab:CreateButton({
     Name = "Vampier",
     Callback = function()
-        -- Шутка
-        print("Я не говорю, что ты олд, но тебе точно понравится эта анимация!")
-
-        -- Изменяем анимацию
-        local character = game.Players.LocalPlayer.Character
-        local Animate = character:WaitForChild("Animate")
-
-        -- Пример замены анимаций
+        local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+        local Animate = plr.Character.Animate
+        Animate.Disabled = true
+        
+        -- Остановка текущих анимаций
+        local function StopAnim()
+            for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+                track:Stop()
+            end
+        end
+        
+        StopAnim()
+        -- Установка анимаций
         Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1083445855"
         Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1083450166"
         Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1083473930"
@@ -180,6 +201,9 @@ AnimTab:CreateButton({
         Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1083455352"
         Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1083439238"
         Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1083443587"
+        -- Обновление состояния Humanoid
+        plr.Character.Humanoid:ChangeState(3)
+        
         Animate.Disabled = false
     end
 })
@@ -187,36 +211,19 @@ AnimTab:CreateButton({
 AnimTab:CreateButton({
     Name = "Zombie Classic",
     Callback = function()
-        -- Шутка
-        print("Я не говорю, что ты олд, но тебе точно понравится эта анимация!")
-
-        -- Изменяем анимацию
-        local character = game.Players.LocalPlayer.Character
-        local Animate = character:WaitForChild("Animate")
-
-        -- Пример замены анимаций
-        Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616158929"
-        Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616160636"
-        Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616168032"
-        Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616163682"
-        Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616161997"
-        Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616156119"
-        Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616157476"
-        Animate.Disabled = false
-    end
-})
-
-AnimTab:CreateButton({
-    Name = "Zombie secret",
-    Callback = function()
-        -- Шутка
-        print("Я не говорю, что ты олд, но тебе точно понравится эта анимация!")
-
-        -- Изменяем анимацию
-        local character = game.Players.LocalPlayer.Character
-        local Animate = character:WaitForChild("Animate")
-
-        -- Пример замены анимаций
+        local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+        local Animate = plr.Character.Animate
+        Animate.Disabled = true
+        
+        -- Остановка текущих анимаций
+        local function StopAnim()
+            for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+                track:Stop()
+            end
+        end
+        
+        StopAnim()
+        -- Установка анимаций
         Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=3489171152"
         Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=3489171152"
         Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=3489174223"
@@ -224,6 +231,41 @@ AnimTab:CreateButton({
         Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616161997"
         Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616156119"
         Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616157476"
+        -- Обновление состояния Humanoid
+        plr.Character.Humanoid:ChangeState(3)
+        
+        Animate.Disabled = false
+    end
+})
+
+
+AnimTab:CreateButton({
+    Name = "Zombie secret",
+    Callback = function()
+        local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+        local Animate = plr.Character.Animate
+        Animate.Disabled = true
+        
+        -- Остановка текущих анимаций
+        local function StopAnim()
+            for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+                track:Stop()
+            end
+        end
+        
+        StopAnim()
+        -- Установка анимаций
+        Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=3489171152"
+        Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=3489171152"
+        Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=3489174223"
+        Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=3489173414"
+        Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616161997"
+        Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616156119"
+        Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616157476"
+    
+        -- Обновление состояния Humanoid
+        plr.Character.Humanoid:ChangeState(3)
+        
         Animate.Disabled = false
     end
 })
