@@ -1,22 +1,17 @@
 local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
 
-local myUserId = 478515970
-
-if player.UserId == myUserId then
-    local character = player.Character or player.CharacterAdded:Wait()
-
-    local function removeRagdollParts()
-        for _, descendant in pairs(character:GetDescendants()) do
-            if descendant:IsA("Constraint") or descendant.Name:lower():find("ragdoll") then
-                descendant:Destroy()  
-            end
+local function removeRagdollParts()
+    for _, descendant in pairs(character:GetDescendants()) do
+        if descendant:IsA("Constraint") or descendant.Name:lower():find("ragdoll") then
+            descendant:Destroy()  
         end
     end
-
-    removeRagdollParts()
-
-    player.CharacterAdded:Connect(function(newCharacter)
-        character = newCharacter
-        removeRagdollParts()
-    end)
 end
+
+removeRagdollParts()
+
+player.CharacterAdded:Connect(function(newCharacter)
+    character = newCharacter
+    removeRagdollParts()
+end)
