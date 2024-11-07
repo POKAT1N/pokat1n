@@ -1,0 +1,258 @@
+--- БАЗА
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local HomeButton = Instance.new("TextButton")
+local AnimationButton = Instance.new("TextButton")
+local ScriptButton = Instance.new("TextButton")  -- Кнопка Script
+local AdidasAnim_Button = Instance.new("TextButton")
+local VampireAnim_Button = Instance.new("TextButton")
+local ZombieAnim_Button = Instance.new("TextButton")
+local LevitationAnim_Button = Instance.new("TextButton")
+local Script1_Button = Instance.new("TextButton") -- Кнопка для первого скрипта
+local Script2_Button = Instance.new("TextButton") -- Кнопка для второго скрипта
+local CloseButton = Instance.new("TextButton")
+
+ScreenGui.Parent = game.CoreGui
+--- БАЗА
+
+--- ФРЕЙМЫ
+
+-- Настройка главного фрейма
+MainFrame.Size = UDim2.new(0, 400, 0, 300)
+MainFrame.Position = UDim2.new(0.5, -200, 0.5, -150)
+MainFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+MainFrame.Parent = ScreenGui
+MainFrame.Active = true
+MainFrame.Draggable = true  -- Делает фрейм перетаскиваемым
+
+-- Заголовок
+Title.Size = UDim2.new(1, -40, 0, 50)
+Title.Position = UDim2.new(0, 0, 0, 0)
+Title.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Title.Text = "Меню"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.Font = Enum.Font.SourceSansBold
+Title.TextSize = 24
+Title.Parent = MainFrame
+
+-- Кнопка закрытия (крестик)
+CloseButton.Size = UDim2.new(0, 40, 0, 40)
+CloseButton.Position = UDim2.new(1, -40, 0, 0)
+CloseButton.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.Font = Enum.Font.SourceSansBold
+CloseButton.TextSize = 24
+CloseButton.Parent = MainFrame
+
+-- Закрытие меню при нажатии на крестик
+CloseButton.MouseButton1Click:Connect(function()
+	ScreenGui:Destroy()
+end)
+
+-- Кнопка Home
+HomeButton.Size = UDim2.new(0, 100, 0, 40)
+HomeButton.Position = UDim2.new(0, 10, 0, 10)
+HomeButton.BackgroundColor3 = Color3.fromRGB(255, 69, 69)
+HomeButton.Text = "Home"
+HomeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+HomeButton.Font = Enum.Font.SourceSansBold
+HomeButton.TextSize = 20
+HomeButton.Visible = false
+HomeButton.Parent = MainFrame
+
+-- Кнопка Animation для перехода на страницу с анимациями
+AnimationButton.Size = UDim2.new(0, 200, 0, 40)
+AnimationButton.Position = UDim2.new(0.5, -100, 0, 100)
+AnimationButton.BackgroundColor3 = Color3.fromRGB(0, 102, 204)
+AnimationButton.Text = "Animations"
+AnimationButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+AnimationButton.Font = Enum.Font.SourceSansBold
+AnimationButton.TextSize = 20
+AnimationButton.Parent = MainFrame
+
+-- Кнопка Script для перехода на страницу со скриптами
+ScriptButton.Size = UDim2.new(0, 200, 0, 40)
+ScriptButton.Position = UDim2.new(0.5, -100, 0, 150)
+ScriptButton.BackgroundColor3 = Color3.fromRGB(102, 204, 0)
+ScriptButton.Text = "Scripts"
+ScriptButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScriptButton.Font = Enum.Font.SourceSansBold
+ScriptButton.TextSize = 20
+ScriptButton.Parent = MainFrame
+
+-- Кнопка для ADIDAS Animation
+AdidasAnim_Button.Size = UDim2.new(0, 200, 0, 40)
+AdidasAnim_Button.Position = UDim2.new(0.5, -100, 0, 100)
+AdidasAnim_Button.BackgroundColor3 = Color3.fromRGB(255, 215, 0)
+AdidasAnim_Button.Text = "ADIDAS Animation"
+AdidasAnim_Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+AdidasAnim_Button.Font = Enum.Font.SourceSansBold
+AdidasAnim_Button.TextSize = 20
+AdidasAnim_Button.Visible = false
+AdidasAnim_Button.Parent = MainFrame
+
+-- Кнопка для Vampire Animation
+VampireAnim_Button.Size = UDim2.new(0, 200, 0, 40)
+VampireAnim_Button.Position = UDim2.new(0.5, -100, 0, 150)
+VampireAnim_Button.BackgroundColor3 = Color3.fromRGB(102, 0, 204)
+VampireAnim_Button.Text = "Vampire Animation"
+VampireAnim_Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+VampireAnim_Button.Font = Enum.Font.SourceSansBold
+VampireAnim_Button.TextSize = 20
+VampireAnim_Button.Visible = false
+VampireAnim_Button.Parent = MainFrame
+
+-- Кнопка для Zombie Animation
+ZombieAnim_Button.Size = UDim2.new(0, 200, 0, 40)
+ZombieAnim_Button.Position = UDim2.new(0.5, -100, 0, 200)
+ZombieAnim_Button.BackgroundColor3 = Color3.fromRGB(102, 204, 0)
+ZombieAnim_Button.Text = "Zombie Animation"
+ZombieAnim_Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+ZombieAnim_Button.Font = Enum.Font.SourceSansBold
+ZombieAnim_Button.TextSize = 20
+ZombieAnim_Button.Visible = false
+ZombieAnim_Button.Parent = MainFrame
+
+-- Кнопка для Levitation Animation
+LevitationAnim_Button.Size = UDim2.new(0, 200, 0, 40)
+LevitationAnim_Button.Position = UDim2.new(0.5, -100, 0, 250)
+LevitationAnim_Button.BackgroundColor3 = Color3.fromRGB(0, 204, 204)
+LevitationAnim_Button.Text = "Levitation Animation"
+LevitationAnim_Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+LevitationAnim_Button.Font = Enum.Font.SourceSansBold
+LevitationAnim_Button.TextSize = 20
+LevitationAnim_Button.Visible = false
+LevitationAnim_Button.Parent = MainFrame
+
+-- Кнопки для скриптов
+Script1_Button.Size = UDim2.new(0, 200, 0, 40)
+Script1_Button.Position = UDim2.new(0.5, -100, 0, 100)
+Script1_Button.BackgroundColor3 = Color3.fromRGB(150, 150, 255)
+Script1_Button.Text = "ANTI RAGDOLL"
+Script1_Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+Script1_Button.Font = Enum.Font.SourceSansBold
+Script1_Button.TextSize = 20
+Script1_Button.Visible = false
+Script1_Button.Parent = MainFrame
+
+Script2_Button.Size = UDim2.new(0, 200, 0, 40)
+Script2_Button.Position = UDim2.new(0.5, -100, 0, 150)
+Script2_Button.BackgroundColor3 = Color3.fromRGB(150, 255, 150)
+Script2_Button.Text = "SysBrok"
+Script2_Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+Script2_Button.Font = Enum.Font.SourceSansBold
+Script2_Button.TextSize = 20
+Script2_Button.Visible = false
+Script2_Button.Parent = MainFrame
+
+--- ФРЕЙМЫ
+
+local plr = game.Players.LocalPlayer
+
+-- Функция остановки всех анимаций
+local function StopAnim()
+	for _, animTrack in pairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+		animTrack:Stop()
+	end
+end
+
+-- Анимации для каждой кнопки
+AdidasAnim_Button.MouseButton1Click:Connect(function()
+	local Animate = plr.Character.Animate
+	Animate.Disabled = true
+	StopAnim()
+	Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=18537376492"
+	Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=18537371272"
+	Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=18537392113"
+	Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=18537384940"
+	Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=18537380791"
+	Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=18537363391"
+	Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=18537367238"
+	Animate.Disabled = false
+end)
+
+VampireAnim_Button.MouseButton1Click:Connect(function()
+	local Animate = plr.Character.Animate
+	Animate.Disabled = true
+	StopAnim()
+	Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1083445855"
+	Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1083450166"
+	Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1083473930"
+	Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1083462077"
+	Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1083455352"
+	Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1083439238"
+	Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1083443587"
+	Animate.Disabled = false
+end)
+
+ZombieAnim_Button.MouseButton1Click:Connect(function()
+	local Animate = plr.Character.Animate
+	Animate.Disabled = true
+	StopAnim()
+	Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616158929"
+	Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616160636"
+	Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616168032"
+	Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616163682"
+	Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616161997"
+	Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616156119"
+	Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616157476"
+	Animate.Disabled = false
+end)
+
+LevitationAnim_Button.MouseButton1Click:Connect(function()
+	local Animate = plr.Character.Animate
+	Animate.Disabled = true
+	StopAnim()
+	Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
+	Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
+	Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616013216"
+	Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616010382"
+	Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616008936"
+	Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616003713"
+	Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616005863"
+	Animate.Disabled = false
+end)
+
+Script1_Button.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/POKAT1N/pokat1n/refs/heads/main/AntiRagdollForRussianVoiceChat'))()
+end)
+
+Script2_Button.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
+end)
+
+-- Переход на страницу с анимациями
+AnimationButton.MouseButton1Click:Connect(function()
+	Title.Text = "Анимации"
+	AnimationButton.Visible = false
+	HomeButton.Visible = true
+	AdidasAnim_Button.Visible = true
+	VampireAnim_Button.Visible = true
+	ZombieAnim_Button.Visible = true
+	LevitationAnim_Button.Visible = true
+end)
+
+ScriptButton.MouseButton1Click:Connect(function()
+	Title.Text = "Скрипты"
+	AnimationButton.Visible = false
+	ScriptButton.Visible = false
+	HomeButton.Visible = true
+	Script1_Button.Visible = true
+	Script2_Button.Visible = true
+end)
+
+-- Кнопка Home (возвращение на главную страницу)
+HomeButton.MouseButton1Click:Connect(function()
+	Title.Text = "Меню"
+	AnimationButton.Visible = true
+	ScriptButton.Visible = true
+	HomeButton.Visible = false
+	AdidasAnim_Button.Visible = false
+	VampireAnim_Button.Visible = false
+	ZombieAnim_Button.Visible = false
+	LevitationAnim_Button.Visible = false
+	Script1_Button.Visible = false
+	Script2_Button.Visible = false
+end)
