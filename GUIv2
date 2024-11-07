@@ -47,28 +47,7 @@ Rayfield:Notify({
 local Button = MainTab:CreateButton({
    Name = "ANTI RAGDOLL",
    Callback = function()
-    local player = game.Players.LocalPlayer
-
-    local myUserId = 478515970
-    
-    if player.UserId == myUserId then
-        local character = player.Character or player.CharacterAdded:Wait()
-    
-        local function removeRagdollParts()
-            for _, descendant in pairs(character:GetDescendants()) do
-                if descendant:IsA("Constraint") or descendant.Name:lower():find("ragdoll") then
-                    descendant:Destroy()  
-                end
-            end
-        end
-    
-        removeRagdollParts()
-    
-        player.CharacterAdded:Connect(function(newCharacter)
-            character = newCharacter
-            removeRagdollParts()
-        end)
-    end
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/POKAT1N/pokat1n/refs/heads/main/AntiRagdollForRussianVoiceChat"))()
    end,
 })
 
@@ -87,6 +66,39 @@ local Toggle = MainTab:CreateButton({
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
    end,
 })
+
+local Toggle = MainTab:CreateButton({
+    Name = "PORTAL DELETE",
+    Callback = function()
+   -- Указываем список имен порталов, которые нужно удалить
+local portalNames = {"Портал", "Портал", "Portal", "Dobro_RussianChatNEW"}
+
+-- Функция для удаления объектов с указанными именами
+local function deletePortals()
+    for _, name in ipairs(portalNames) do
+        local portal = game.Workspace:FindFirstChild(name)
+        if portal then
+            portal:Destroy()
+            print(name .. " удален из Workspace.")
+        else
+            print(name .. " не найден.")
+        end
+    end
+end
+
+-- Вызов функции удаления
+deletePortals()
+
+    end,
+ })
+
+ local Button = MainTab:CreateButton({
+    Name = "ANIMATION",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/POKAT1N/pokat1n/refs/heads/main/GUIv1'))()
+    end,
+ })
+ 
 
 local TPTab = Window:CreateTab("🏝 Teleports", nil) -- Title, Image
 
