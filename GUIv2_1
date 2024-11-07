@@ -76,7 +76,7 @@ deletePortals()
  local MainSection = HomeTab:CreateSection("Other")
 
  HomeTab:CreateButton({
-    Name = "Time set day",
+    Name = "Time set day (не работает)",
     Callback = function()
         -- Установим время на день (12 часов)
         game.Lighting.ClockTime = 12
@@ -84,7 +84,7 @@ deletePortals()
 })
 
 HomeTab:CreateButton({
-    Name = "Time set night",
+    Name = "Time set night (не рабоает)",
     Callback = function()
         -- Установим время на ночь (например, 0 часов)
         game.Lighting.ClockTime = 0
@@ -419,3 +419,4 @@ TeleportsTab:CreateButton({
         print("Teleporting to: TOWER")
     end
 })
+
