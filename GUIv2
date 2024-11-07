@@ -95,7 +95,7 @@ deletePortals()
  local Button = MainTab:CreateButton({
     Name = "ANIMATION",
     Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/POKAT1N/pokat1n/refs/heads/main/GUIv1'))()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/POKAT1N/pokat1n/refs/heads/main/animation'))()
     end,
  })
  
