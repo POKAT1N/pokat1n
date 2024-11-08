@@ -1,0 +1,38 @@
+local Players = game:GetService("Players")
+
+local function copyDancePackForPlayer(player)
+    local havePassesFolder = player:WaitForChild("HavePasses")
+
+    local function checkAndCopyDancePack()
+        for _, otherPlayer in ipairs(Players:GetPlayers()) do
+            if otherPlayer ~= player then
+                local otherHavePasses = otherPlayer:FindFirstChild("HavePasses")
+                if otherHavePasses then
+                    local otherDancePack = otherHavePasses:FindFirstChild("DancePack")
+                    if otherDancePack and not havePassesFolder:FindFirstChild("DancePack") then
+                        -- Копируем Пак танцев в папку текущего игрока
+                        local dancePack = Instance.new("StringValue")
+                        dancePack.Name = "DancePack"
+                        dancePack.Value = otherDancePack.Value
+                        dancePack.Parent = havePassesFolder
+                        print("Пак танцев скопирован для игрока:", player.Name)
+                        return
+                    end
+                end
+            end
+        end
+    end
+
+    -- Периодически проверяем наличие Пака танцев каждые 2 секунды
+    while not havePassesFolder:FindFirstChild("DancePack") do
+        checkAndCopyDancePack()
+        wait(2)
+    end
+end
+
+Players.PlayerAdded:Connect(copyDancePackForPlayer)
+
+-- Обработка уже находящихся в игре игроков
+for _, player in ipairs(Players:GetPlayers()) do
+    copyDancePackForPlayer(player)
+end
