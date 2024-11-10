@@ -2,7 +2,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 -- Создание окна с пользовательскими настройками
 local Window = Rayfield:CreateWindow({
-    Name = "🔥 BW C0MMUNITY | РГЧ 🔫",
+    Name = "🔥 хз как назвать | РГЧ 🔫",
     LoadingTitle = "🔫 Русский Голосвой Чат 💥",
     LoadingSubtitle = "by POKAT1N",
     ConfigurationSaving = {
@@ -30,16 +30,18 @@ local Window = Rayfield:CreateWindow({
 -- Создание вкладки Home
 local HomeTab = Window:CreateTab("Home", 4483362458)
 
--- Добавление секции с заголовком "Main"
-local MainSection = HomeTab:CreateSection("Main")
+local MainSection = HomeTab:CreateSection("Enter and exit ragdoll mode before using (if you reset your avatar, then repeat it again)")
 
 -- Кнопка ANTI RAGDOLL
 HomeTab:CreateButton({
-    Name = "ANTI RAGDOLL (press R before using)",
+    Name = "ANTI RAGDOLL",
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/POKAT1N/pokat1n/refs/heads/main/AntiRagdollForRussianVoiceChat'))()
     end
 })
+
+-- Добавление секции с заголовком "Main"
+local MainSection = HomeTab:CreateSection("Main")
 
 local Toggle = HomeTab:CreateToggle({
     Name = "Collision (HEAD)",
@@ -64,6 +66,7 @@ local Toggle = HomeTab:CreateToggle({
     end,
  })
  
+ local MainSection = HomeTab:CreateSection("Free Gamepass")
 
 -- Кнопка FreeVIP (only VIP room)
 HomeTab:CreateButton({
@@ -80,6 +83,9 @@ HomeTab:CreateButton({
         loadstring(game:HttpGet('https://raw.githubusercontent.com/POKAT1N/pokat1n/refs/heads/main/FreeDancePack'))()
     end
 })
+
+ -- Создание секции Other
+ local MainSection = HomeTab:CreateSection("Other")
 
 -- Кнопка для Удаление порталов
 HomeTab:CreateButton({
@@ -103,26 +109,6 @@ deletePortals()
 
     end,
  })
-
- -- Создание секции Other
- local MainSection = HomeTab:CreateSection("Other")
-
- HomeTab:CreateButton({
-    Name = "Time set day (не работает)",
-    Callback = function()
-        -- Установим время на день (12 часов)
-        game.Lighting.ClockTime = 12
-    end
-})
-
-HomeTab:CreateButton({
-    Name = "Time set night (не рабоает)",
-    Callback = function()
-        -- Установим время на ночь (например, 0 часов)
-        game.Lighting.ClockTime = 0
-        print("Время установлено на ночь!")
-    end
-})
 
 -- Создание вкладки Script
 local ScriptTab = Window:CreateTab("Script Hub", 4483362458)
