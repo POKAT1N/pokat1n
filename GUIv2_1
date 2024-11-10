@@ -41,6 +41,30 @@ HomeTab:CreateButton({
     end
 })
 
+local Toggle = HomeTab:CreateToggle({
+    Name = "Collision (HEAD)",
+    CurrentValue = false,
+    Flag = "Toggle1",
+    Callback = function(Value)
+        -- Получаем локального игрока
+        local Players = game:GetService("Players")
+        local LocalPlayer = Players.LocalPlayer
+        
+        -- Проверяем, что у игрока есть персонаж и HumanoidRootPart
+        if LocalPlayer and LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            local humanoidRootPart = LocalPlayer.Character.HumanoidRootPart
+            
+            -- Меняем CollisionGroupId на 5 или 6 в зависимости от состояния переключателя
+            if Value then
+                humanoidRootPart.CollisionGroupId = 6
+            else
+                humanoidRootPart.CollisionGroupId = 5
+            end
+        end
+    end,
+ })
+ 
+
 -- Кнопка FreeVIP (only VIP room)
 HomeTab:CreateButton({
     Name = "FreeVIP (only VIP room)",
@@ -157,6 +181,66 @@ AnimTab:CreateButton({
 })
 
 AnimTab:CreateButton({
+    Name = "Custom animation 1",
+    Callback = function()
+            local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+            local Animate = plr.Character.Animate
+            Animate.Disabled = true
+            
+            -- Остановка текущих анимаций
+            local function StopAnim()
+                for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+                    track:Stop()
+                end
+            end
+            
+            StopAnim()
+            -- Установка анимаций
+            Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
+            Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
+            Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=18537392113"
+            Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616010382"
+            Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616008936"
+            Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616003713"
+            Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616005863"
+            -- Обновление состояния Humanoid
+            plr.Character.Humanoid:ChangeState(3)
+            
+            Animate.Disabled = false
+        end
+})
+
+AnimTab:CreateButton({
+    Name = "Custom animation 2",
+    Callback = function()
+            local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+            local Animate = plr.Character.Animate
+            Animate.Disabled = true
+            
+            -- Остановка текущих анимаций
+            local function StopAnim()
+                for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+                    track:Stop()
+                end
+            end
+            
+            StopAnim()
+            -- Установка анимаций
+            Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616111295"
+            Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616113536"
+            Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=18537392113"
+            Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616010382"
+            Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=18537380791"
+            Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=18537363391"
+            Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=18537367238"
+            -- Обновление состояния Humanoid
+            plr.Character.Humanoid:ChangeState(3)
+            
+            Animate.Disabled = false
+        end
+})
+
+AnimTab:CreateButton({
     Name = "Levetation",
     Callback = function()
             local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
@@ -184,6 +268,66 @@ AnimTab:CreateButton({
             
             Animate.Disabled = false
         end
+})
+
+AnimTab:CreateButton({
+    Name = "Ninja",
+    Callback = function()
+            local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+            local Animate = plr.Character.Animate
+            Animate.Disabled = true
+            
+            -- Остановка текущих анимаций
+            local function StopAnim()
+                for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+                    track:Stop()
+                end
+            end
+            
+            StopAnim()
+            -- Установка анимаций
+            Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=656117400"
+            Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=656118341"
+            Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=656121766"
+            Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=656118852"
+            Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=656117878"
+            Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=656114359"
+            Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=656115606"
+            -- Обновление состояния Humanoid
+            plr.Character.Humanoid:ChangeState(3)
+            
+            Animate.Disabled = false
+        end
+})
+
+AnimTab:CreateButton({
+    Name = "SuperHero",
+    Callback = function()
+        local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+        local Animate = plr.Character.Animate
+        Animate.Disabled = true
+        
+        -- Остановка текущих анимаций
+        local function StopAnim()
+            for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+                track:Stop()
+            end
+        end
+        
+        StopAnim()
+        -- Установка анимаций
+	Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616111295"
+	Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616113536"
+	Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616122287"
+	Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616117076"
+	Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616115533"
+	Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616104706"
+	Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616108001"
+        -- Обновление состояния Humanoid
+        plr.Character.Humanoid:ChangeState(3)
+        
+        Animate.Disabled = false
+    end
 })
 
 AnimTab:CreateButton({
