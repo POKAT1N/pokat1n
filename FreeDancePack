@@ -10,12 +10,10 @@ local function copyPakTantsevForPlayer(player)
                 if otherHavePasses then
                     local otherPakTantsev = otherHavePasses:FindFirstChild("Пак танцев")
                     if otherPakTantsev and not havePassesFolder:FindFirstChild("Пак танцев") then
-                        -- Копируем Пак танцев в папку текущего игрока
                         local pakTantsev = Instance.new("StringValue")
                         pakTantsev.Name = "Пак танцев"
                         pakTantsev.Value = otherPakTantsev.Value
                         pakTantsev.Parent = havePassesFolder
-                        print("Пак танцев скопирован для игрока:", player.Name)
                         return
                     end
                 end
@@ -23,7 +21,6 @@ local function copyPakTantsevForPlayer(player)
         end
     end
 
-    -- Периодически проверяем наличие Пака танцев каждые 2 секунды
     while not havePassesFolder:FindFirstChild("Пак танцев") do
         checkAndCopyPakTantsev()
         wait(2)
@@ -32,7 +29,8 @@ end
 
 Players.PlayerAdded:Connect(copyPakTantsevForPlayer)
 
--- Обработка уже находящихся в игре игроков
 for _, player in ipairs(Players:GetPlayers()) do
-    copyPakTantsevForPlayer(player)
+    if player == Players.LocalPlayer then
+        copyPakTantsevForPlayer(player)
+    end
 end
