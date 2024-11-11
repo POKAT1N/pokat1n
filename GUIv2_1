@@ -27,12 +27,10 @@ local Window = Rayfield:CreateWindow({
     }
 })
 
--- Создание вкладки Home
 local HomeTab = Window:CreateTab("Home", 4483362458)
 
 local MainSection = HomeTab:CreateSection("Enter and exit ragdoll mode before using (if you reset your avatar, then repeat it again)")
 
--- Кнопка ANTI RAGDOLL
 HomeTab:CreateButton({
     Name = "ANTI RAGDOLL",
     Callback = function()
@@ -40,23 +38,20 @@ HomeTab:CreateButton({
     end
 })
 
--- Добавление секции с заголовком "Main"
 local MainSection = HomeTab:CreateSection("Main")
 
 local Toggle = HomeTab:CreateToggle({
-    Name = "Collision (HEAD)",
+    Name = "Collision (Don`t work? rejoin!)",
     CurrentValue = false,
     Flag = "Toggle1",
     Callback = function(Value)
-        -- Получаем локального игрока
+
         local Players = game:GetService("Players")
         local LocalPlayer = Players.LocalPlayer
-        
-        -- Проверяем, что у игрока есть персонаж и HumanoidRootPart
-        if LocalPlayer and LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+
+                if LocalPlayer and LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
             local humanoidRootPart = LocalPlayer.Character.HumanoidRootPart
             
-            -- Меняем CollisionGroupId на 5 или 6 в зависимости от состояния переключателя
             if Value then
                 humanoidRootPart.CollisionGroupId = 6
             else
@@ -64,11 +59,10 @@ local Toggle = HomeTab:CreateToggle({
             end
         end
     end,
- })
+})
  
  local MainSection = HomeTab:CreateSection("Free Gamepass")
 
--- Кнопка FreeVIP (only VIP room)
 HomeTab:CreateButton({
     Name = "FreeVIP (only VIP room)",
     Callback = function()
@@ -76,7 +70,6 @@ HomeTab:CreateButton({
     end
 })
 
--- Кнопка FreeDance
 HomeTab:CreateButton({
     Name = "FreeDance",
     Callback = function()
@@ -84,10 +77,8 @@ HomeTab:CreateButton({
     end
 })
 
- -- Создание секции Other
  local MainSection = HomeTab:CreateSection("Other")
 
--- Кнопка для Удаление порталов
 HomeTab:CreateButton({
     Name = "PORTAL DELETE",
     Callback = function()
@@ -110,10 +101,8 @@ deletePortals()
     end,
  })
 
--- Создание вкладки Script
 local ScriptTab = Window:CreateTab("Script Hub", 4483362458)
 
--- Добавление секции с заголовком "Main"
 local ScriptTabSection = ScriptTab:CreateSection("Best")
 
 ScriptTab:CreateButton({
@@ -130,16 +119,14 @@ ScriptTab:CreateButton({
     end
 })
 
- -- Создание вкладки Anim
 local AnimTab = Window:CreateTab("Animation", 4483362458)
 
--- Создание секции Animation
 local MainSection = AnimTab:CreateSection("Animation")
 
 AnimTab:CreateButton({
     Name = "ADIDAS",
     Callback = function()
-            local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+            local plr = game.Players.LocalPlayer
             local Animate = plr.Character.Animate
             Animate.Disabled = true
             
@@ -151,7 +138,6 @@ AnimTab:CreateButton({
             end
             
             StopAnim()
-            -- Установка анимаций
             Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=18537376492"
             Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=18537371272"
             Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=18537392113"
@@ -159,7 +145,6 @@ AnimTab:CreateButton({
             Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=18537380791"
             Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=18537363391"
             Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=18537367238"
-            -- Обновление состояния Humanoid
             plr.Character.Humanoid:ChangeState(3)
             
             Animate.Disabled = false
@@ -169,11 +154,10 @@ AnimTab:CreateButton({
 AnimTab:CreateButton({
     Name = "Custom animation 1",
     Callback = function()
-            local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+            local plr = game.Players.LocalPlayer
             local Animate = plr.Character.Animate
             Animate.Disabled = true
             
-            -- Остановка текущих анимаций
             local function StopAnim()
                 for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
                     track:Stop()
@@ -181,7 +165,6 @@ AnimTab:CreateButton({
             end
             
             StopAnim()
-            -- Установка анимаций
             Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
             Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
             Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=18537392113"
@@ -189,7 +172,6 @@ AnimTab:CreateButton({
             Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616008936"
             Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616003713"
             Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616005863"
-            -- Обновление состояния Humanoid
             plr.Character.Humanoid:ChangeState(3)
             
             Animate.Disabled = false
@@ -199,11 +181,10 @@ AnimTab:CreateButton({
 AnimTab:CreateButton({
     Name = "Custom animation 2",
     Callback = function()
-            local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+            local plr = game.Players.LocalPlayer
             local Animate = plr.Character.Animate
             Animate.Disabled = true
             
-            -- Остановка текущих анимаций
             local function StopAnim()
                 for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
                     track:Stop()
@@ -211,7 +192,6 @@ AnimTab:CreateButton({
             end
             
             StopAnim()
-            -- Установка анимаций
             Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616111295"
             Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616113536"
             Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=18537392113"
@@ -219,7 +199,6 @@ AnimTab:CreateButton({
             Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=18537380791"
             Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=18537363391"
             Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=18537367238"
-            -- Обновление состояния Humanoid
             plr.Character.Humanoid:ChangeState(3)
             
             Animate.Disabled = false
@@ -229,11 +208,10 @@ AnimTab:CreateButton({
 AnimTab:CreateButton({
     Name = "Levetation",
     Callback = function()
-            local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+            local plr = game.Players.LocalPlayer
             local Animate = plr.Character.Animate
             Animate.Disabled = true
             
-            -- Остановка текущих анимаций
             local function StopAnim()
                 for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
                     track:Stop()
@@ -241,7 +219,6 @@ AnimTab:CreateButton({
             end
             
             StopAnim()
-            -- Установка анимаций
             Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
             Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
             Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616013216"
@@ -249,7 +226,6 @@ AnimTab:CreateButton({
             Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616008936"
             Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616003713"
             Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616005863"
-            -- Обновление состояния Humanoid
             plr.Character.Humanoid:ChangeState(3)
             
             Animate.Disabled = false
@@ -259,11 +235,10 @@ AnimTab:CreateButton({
 AnimTab:CreateButton({
     Name = "Ninja",
     Callback = function()
-            local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+            local plr = game.Players.LocalPlayer
             local Animate = plr.Character.Animate
             Animate.Disabled = true
             
-            -- Остановка текущих анимаций
             local function StopAnim()
                 for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
                     track:Stop()
@@ -271,7 +246,6 @@ AnimTab:CreateButton({
             end
             
             StopAnim()
-            -- Установка анимаций
             Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=656117400"
             Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=656118341"
             Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=656121766"
@@ -279,7 +253,6 @@ AnimTab:CreateButton({
             Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=656117878"
             Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=656114359"
             Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=656115606"
-            -- Обновление состояния Humanoid
             plr.Character.Humanoid:ChangeState(3)
             
             Animate.Disabled = false
@@ -289,11 +262,10 @@ AnimTab:CreateButton({
 AnimTab:CreateButton({
     Name = "SuperHero",
     Callback = function()
-        local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+        local plr = game.Players.LocalPlayer
         local Animate = plr.Character.Animate
         Animate.Disabled = true
         
-        -- Остановка текущих анимаций
         local function StopAnim()
             for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
                 track:Stop()
@@ -301,7 +273,6 @@ AnimTab:CreateButton({
         end
         
         StopAnim()
-        -- Установка анимаций
 	Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616111295"
 	Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616113536"
 	Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616122287"
@@ -309,7 +280,6 @@ AnimTab:CreateButton({
 	Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616115533"
 	Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616104706"
 	Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616108001"
-        -- Обновление состояния Humanoid
         plr.Character.Humanoid:ChangeState(3)
         
         Animate.Disabled = false
@@ -319,11 +289,10 @@ AnimTab:CreateButton({
 AnimTab:CreateButton({
     Name = "Vampier",
     Callback = function()
-        local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+        local plr = game.Players.LocalPlayer
         local Animate = plr.Character.Animate
         Animate.Disabled = true
         
-        -- Остановка текущих анимаций
         local function StopAnim()
             for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
                 track:Stop()
@@ -331,7 +300,6 @@ AnimTab:CreateButton({
         end
         
         StopAnim()
-        -- Установка анимаций
         Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1083445855"
         Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1083450166"
         Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1083473930"
@@ -339,7 +307,6 @@ AnimTab:CreateButton({
         Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1083455352"
         Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1083439238"
         Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1083443587"
-        -- Обновление состояния Humanoid
         plr.Character.Humanoid:ChangeState(3)
         
         Animate.Disabled = false
@@ -349,11 +316,10 @@ AnimTab:CreateButton({
 AnimTab:CreateButton({
     Name = "Zombie Classic",
     Callback = function()
-        local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+        local plr = game.Players.LocalPlayer
         local Animate = plr.Character.Animate
         Animate.Disabled = true
         
-        -- Остановка текущих анимаций
         local function StopAnim()
             for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
                 track:Stop()
@@ -361,7 +327,6 @@ AnimTab:CreateButton({
         end
         
         StopAnim()
-        -- Установка анимаций
         Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616158929"
         Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616160636"
         Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616168032"
@@ -369,7 +334,6 @@ AnimTab:CreateButton({
         Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616161997"
         Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616156119"
         Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616157476"
-        -- Обновление состояния Humanoid
         plr.Character.Humanoid:ChangeState(3)
         
         Animate.Disabled = false
@@ -380,11 +344,10 @@ AnimTab:CreateButton({
 AnimTab:CreateButton({
     Name = "Zombie secret",
     Callback = function()
-        local plr = game.Players.LocalPlayer -- Убедитесь, что игрок определен
+        local plr = game.Players.LocalPlayer
         local Animate = plr.Character.Animate
         Animate.Disabled = true
         
-        -- Остановка текущих анимаций
         local function StopAnim()
             for _, track in ipairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
                 track:Stop()
@@ -392,7 +355,6 @@ AnimTab:CreateButton({
         end
         
         StopAnim()
-        -- Установка анимаций
         Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=3489171152"
         Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=3489171152"
         Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=3489174223"
@@ -400,22 +362,121 @@ AnimTab:CreateButton({
         Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616161997"
         Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616156119"
         Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616157476"
-    
-        -- Обновление состояния Humanoid
         plr.Character.Humanoid:ChangeState(3)
         
         Animate.Disabled = false
     end
 })
 
-
--- Создание вкладки Teleport
 local TeleportsTab = Window:CreateTab("Teleports", 4483362458)
 
--- Добавление секции с заголовком "Area"
 local AreaSection = TeleportsTab:CreateSection("Area")
 
--- Кнопки для различных мест телепортации
+TeleportsTab:CreateButton({
+    Name = "AFK ZONE",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31.54, 2.78, 95.59)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "BUNKER",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(72.73, -55.90, -67.20)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "CLOUD",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-140.80, 55.77, -159.29)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "HOUSE",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-308.78, 34.70, -101.97)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "INV OBBY",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(150.03, 2.58, -2.96)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "INV OBBY (FINISH)",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(265.97, 23.48, -0.46)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "LONG OBBY",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1.71, 16.68, -182.15)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "LONG OBBY (FINISH)",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-80.77, 19.68, -505.89)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "MAGIC WORD",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-103.82, 2.60, -41.22)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "MOVING STAIRS",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-209.47, 66.45, -0.16)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "ORANGE TOWER",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2195.31, 760.98, 180.89)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "POZOR",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(60.98, 28.15, -165.95)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "POZOR (TOP)",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(60.51, 43.45, -166.31)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "RAINBOW STAIRS (TOP)",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-148.48, 430.61, 40.90)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "SCENE",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-53.53, 2.50, -107.15)
+    end
+})
+
 TeleportsTab:CreateButton({
     Name = "SPAWN",
     Callback = function()
@@ -425,170 +486,32 @@ TeleportsTab:CreateButton({
 })
 
 TeleportsTab:CreateButton({
-    Name = "VIP",
+    Name = "Safe Zone",
     Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-60.74, 87.12, 398.26)
-        print("Teleporting to: VIP")
-    end
-})
+        local Players = game:GetService("Players")
+        local LocalPlayer = Players.LocalPlayer
+        local Workspace = game:GetService("Workspace")
 
-TeleportsTab:CreateButton({
-    Name = "BUNKER",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(72.73, -55.90, -67.20)
-        print("Teleporting to: BUNKER")
-    end
-})
+        local safeZone = Workspace:FindFirstChild("Safe Zone")
 
-TeleportsTab:CreateButton({
-    Name = "VIBE ROOM",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(7.11, 353.18, -592.64)
-        print("Teleporting to: VIBE ROOM")
-    end
-})
+        if not safeZone then
+            safeZone = Instance.new("Part")
+            safeZone.Name = "Safe Zone"
+            safeZone.Size = Vector3.new(100, 1, 100) 
+            safeZone.Position = Vector3.new(10000, 50, 10000)
+            safeZone.Anchored = true
+            safeZone.CanCollide = true
+            safeZone.Parent = Workspace
 
-TeleportsTab:CreateButton({
-    Name = "RAINBOW STAIRS (TOP)",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-148.48, 430.61, 40.90)
-        print("Teleporting to: RAINBOW STAIRS (TOP)")
-    end
-})
+            print("Safe Zone platform created at: " .. tostring(safeZone.Position))
+        else
+            print("Safe Zone platform already exists.")
+        end
 
-TeleportsTab:CreateButton({
-    Name = "MOVING STAIRS",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-209.47, 66.45, -0.16)
-        print("Teleporting to: MOVING STAIRS")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "TESTS",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(91.43, 2.50, 108.42)
-        print("Teleporting to: TESTS")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "INV OBBY",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(150.03, 2.58, -2.96)
-        print("Teleporting to: INV OBBY")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "INV OBBY (FINISH)",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(265.97, 23.48, -0.46)
-        print("Teleporting to: INV OBBY")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "ORANGE TOWER",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2195.31, 760.98, 180.89)
-        print("Teleporting to: ORANGE TOWER")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "WOODEN OBBY",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(49.45, 2.53, 45.15)
-        print("Teleporting to: WOODEN OBBY")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "WOODEN OBBY (FINISH)",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(47.91, 89.62, 45.32)
-        print("Teleporting to: WOODEN OBBY")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "LONG OBBY",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1.71, 16.68, -182.15)
-        print("Teleporting to: LONG OBBY")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "LONG OBBY (FINISH)",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-80.77, 19.68, -505.89)
-        print("Teleporting to: LONG OBBY")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "CLOUD",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-140.80, 55.77, -159.29)
-        print("Teleporting to: CLOUD")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "HOUSE",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-308.78, 34.70, -101.97)
-        print("Teleporting to: HOUSE")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "MAGIC WORD",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-103.82, 2.60, -41.22)
-        print("Teleporting to: MAGIC WORD")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "SCENE",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-53.53, 2.50, -107.15)
-        print("Teleporting to: SCENE")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "POZOR",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(60.98, 28.15, -165.95)
-        print("Teleporting to: POZOR")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "POZOR (TOP)",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(60.51, 43.45, -166.31)
-        print("Teleporting to: POZOR (TOP)")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "AFK ZONE",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31.54, 2.78, 95.59)
-        print("Teleporting to: AFK ZONE")
-    end
-})
-
-TeleportsTab:CreateButton({
-    Name = "ROBLOX TEST (TOP)",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(70.44, 35.78, 151.35)
-        print("Teleporting to: ROBLOX TEST")
+        if LocalPlayer and LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(safeZone.Position + Vector3.new(0, 3, 0))
+            print("Teleporting to: Safe Zone")
+        end
     end
 })
 
@@ -596,6 +519,40 @@ TeleportsTab:CreateButton({
     Name = "TOWER",
     Callback = function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(37.10, 101.60, -119.27)
-        print("Teleporting to: TOWER")
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "TESTS",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(91.43, 2.50, 108.42)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "TEST (TOP)",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(70.44, 35.78, 151.35)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "VIP",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-60.74, 87.12, 398.26)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "WOODEN OBBY",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(49.45, 2.53, 45.15)
+    end
+})
+
+TeleportsTab:CreateButton({
+    Name = "WOODEN OBBY (FINISH)",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(47.91, 89.62, 45.32)
     end
 })
