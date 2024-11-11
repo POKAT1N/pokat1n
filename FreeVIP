@@ -10,12 +10,10 @@ local function copyVIPForPlayer(player)
                 if otherHavePasses then
                     local otherVIP = otherHavePasses:FindFirstChild("VIP")
                     if otherVIP and not havePassesFolder:FindFirstChild("VIP") then
-                        -- Копируем VIP в папку текущего игрока
                         local vipPass = Instance.new("IntValue")
                         vipPass.Name = "VIP"
                         vipPass.Value = otherVIP.Value
                         vipPass.Parent = havePassesFolder
-                        print("VIP скопирован для игрока:", player.Name)
                         return
                     end
                 end
@@ -23,7 +21,6 @@ local function copyVIPForPlayer(player)
         end
     end
 
-    -- Периодически проверяем наличие VIP каждые 2 секунды
     while not havePassesFolder:FindFirstChild("VIP") do
         checkAndCopyVIP()
         wait(2)
@@ -32,7 +29,6 @@ end
 
 Players.PlayerAdded:Connect(copyVIPForPlayer)
 
--- Обработка уже находящихся в игре игроков
-for _, player in ipairs(Players:GetPlayers()) do
-    copyVIPForPlayer(player)
+if Players.LocalPlayer then
+    copyVIPForPlayer(Players.LocalPlayer)
 end
