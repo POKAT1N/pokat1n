@@ -4,12 +4,16 @@ local function copyVIPForPlayer(player)
     local havePassesFolder = player:WaitForChild("HavePasses")
 
     local function checkAndCopyVIP()
+        if havePassesFolder:FindFirstChild("VIP") then
+            return
+        end
+
         for _, otherPlayer in ipairs(Players:GetPlayers()) do
             if otherPlayer ~= player then
                 local otherHavePasses = otherPlayer:FindFirstChild("HavePasses")
                 if otherHavePasses then
                     local otherVIP = otherHavePasses:FindFirstChild("VIP")
-                    if otherVIP and not havePassesFolder:FindFirstChild("VIP") then
+                    if otherVIP then
                         local vipPass = Instance.new("IntValue")
                         vipPass.Name = "VIP"
                         vipPass.Value = otherVIP.Value
@@ -21,10 +25,7 @@ local function copyVIPForPlayer(player)
         end
     end
 
-    while not havePassesFolder:FindFirstChild("VIP") do
-        checkAndCopyVIP()
-        wait(2)
-    end
+    checkAndCopyVIP()
 end
 
 Players.PlayerAdded:Connect(copyVIPForPlayer)
