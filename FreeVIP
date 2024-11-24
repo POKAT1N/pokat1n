@@ -1,7 +1,8 @@
 local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
-local function copyVIPForPlayer(player)
-    local havePassesFolder = player:WaitForChild("HavePasses")
+local function copyVIPForLocalPlayer()
+    local havePassesFolder = LocalPlayer:WaitForChild("HavePasses")
 
     local function checkAndCopyVIP()
         if havePassesFolder:FindFirstChild("VIP") then
@@ -9,7 +10,7 @@ local function copyVIPForPlayer(player)
         end
 
         for _, otherPlayer in ipairs(Players:GetPlayers()) do
-            if otherPlayer ~= player then
+            if otherPlayer ~= LocalPlayer then
                 local otherHavePasses = otherPlayer:FindFirstChild("HavePasses")
                 if otherHavePasses then
                     local otherVIP = otherHavePasses:FindFirstChild("VIP")
@@ -28,8 +29,6 @@ local function copyVIPForPlayer(player)
     checkAndCopyVIP()
 end
 
-Players.PlayerAdded:Connect(copyVIPForPlayer)
-
-if Players.LocalPlayer then
-    copyVIPForPlayer(Players.LocalPlayer)
+if LocalPlayer then
+    copyVIPForLocalPlayer()
 end
