@@ -15,3 +15,6 @@ player.CharacterAdded:Connect(function(newCharacter)
     character = newCharacter
     removeRagdollParts()
 end)
+
+
+ХУИТААААА
